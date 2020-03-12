@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { View, Text, ScrollView, Image } from 'react-native'
 import { StiInput, StiTxt } from "../controls/input"
-import { StiBtn } from "../controls/button"
-import { StiModal } from "../controls/other"
-import { StiIconFontAwesome5 } from '../../components/controls/icon';
 import { useDispatch, useSelector } from "react-redux"
 import moment from 'moment';
-import {  } from "../../duck/action"
 import {IStoreState, IAction} from "../../duck/type"
 import style from "./style"
 
@@ -20,7 +16,9 @@ export default () => {
   const [actions, setActions] = useState<string[]>([]);
   useEffect(() => {
     getAsyncStore("top5").then((currentActions: string) =>{
-      setActions(JSON.parse(currentActions))
+      if (currentActions) {
+        setActions(JSON.parse(currentActions))
+      }
     })
   }, [])
 
