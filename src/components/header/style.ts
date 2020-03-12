@@ -9,7 +9,8 @@ const style = StyleSheet.create({
   },
   text: {
     color: "#fff",
-    fontSize: 26
+    fontSize: 26,
+    fontFamily: "Didot-Bold"
   },
   button: {
     position: "absolute",
